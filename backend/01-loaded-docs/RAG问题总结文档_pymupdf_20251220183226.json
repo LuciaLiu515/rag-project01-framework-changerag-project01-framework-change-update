@@ -1,0 +1,57 @@
+{
+  "filename": "RAG问题总结文档.pdf",
+  "total_chunks": 5,
+  "total_pages": 5,
+  "loading_method": "pymupdf",
+  "loading_strategy": null,
+  "chunking_strategy": null,
+  "chunking_method": "loaded",
+  "timestamp": "2025-12-20T18:32:26.411943",
+  "chunks": [
+    {
+      "content": "1.\n●\n●\n找得到模型参数和配置文件，目录路径需要完整，包括snapshot目录）\nWindows:C:\\Users\\你的用户名\\.cache\\huggingface\\hub\n2. 修改环境变量（指定全局缓存路径）：\n在终端或环境变量中设置：export HF_HOME=/你的自定义路径/huggingface \n这样所有模型都会缓存到你指定的路径。\n3. 在程序中指定模型路径（更灵活）：\n如果你已经手动下载好了模型到某个文件夹，如 /path/to/model，使用时可指定路径：\nfrom transformers import AutoModel, AutoTokenizer  model = \nAutoModel.from_pretrained(\"/path/to/model\") tokenizer = \nAutoTokenizer.from_pretrained(\"/path/to/model\")\nRAG问题总结文档\nGit下载速度太慢\n复制代理到终端\n各种报错解决方法\n可以直接将报错信息复制到Cursor或者其他大模型工具里看大模型提示\nHugging Face被墙\n访问\n下载向量模型访问失败可以在后端\n目录下创建一个\n文\n huggingface.co \n \n backend \n.env\n件，里面写入\n，这样也能不用翻墙\nHF_ENDPOINT=https://hf-mirror.com  \nexport HF_ENDPOINT=https://hf-mirror.com\n或者在后端启动命令同一个\n里先执行\n \nterminal\n \n一劳永逸方法在\necho 'export HF_ENDPOINT=https://hf-mirror.com' >> ~/.bashrc\nsource ~/.bashrc\nHugging Face模型下载下来之后在哪里\n有的同学希望手工下载模型下来，然后指明路径。也可以。\n默认缓存位置：\n默认情况下，Hugging Face 的模型缓存位置是：\nLinux/MacOS:~/.cache/huggingface/hub （注意有时候有SnapShot目录，要进入其内部才",
+      "metadata": {
+        "chunk_id": 1,
+        "page_number": 1,
+        "page_range": "1",
+        "word_count": 64
+      }
+    },
+    {
+      "content": "1.\n2.\n如果有\n，就安装最全的版本（\n），如果没有\n，就安装\n（\nGPU\nwith GPU\nGPU\nMac\nwithout \n）版本。\nGPU\n如果一定要使用\n，推荐在\n装个\n。\nWindows\nWindows\nWSL\n如果还是要使用\n跑项目，那么遇到\n相关的项目，就需要手动调整为\nWindows\nMilvus-Lite\n或者其它的向量数据库。\nChroma\nConda和Venv环境\n课程中要用到很多不同的环境\nLangChain\nLlamaIndex\nexport https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 \nall_proxy=socks5://127.0.0.1:7890\n粘贴 再执行～ \ngit clone GIT_PROJECT\n上面装不了\nWindows\nMilvus-Lite\n项目推荐使用\n系统，其次是\n。\nUbuntu\nMac",
+      "metadata": {
+        "chunk_id": 2,
+        "page_number": 2,
+        "page_range": "2",
+        "word_count": 50
+      }
+    },
+    {
+      "content": "3.\n4.\n5.\n要么只用\n，要么只用\n，不用混用\nConda\nVenv\n如上图所示就很混乱，建议：\n。\n项目前端后端连接问题\n前端后端都已经成功启动，有时候还是出现连接问题。\n项目1/3用RAG_Framework\n项目2/4用NLP_Tools\n有时候需要用Camelot和Marker等工具类环境\n我在视频中是选择的Venv环境，选择了之后打开新的Terminal，环境就会生效。\n有的同学使用\n，那么就在\n中激活环境即可。混用\n和\n有时候容易乱，\nConda\nConda\nConda\nVenv\n会出现下面这种多重环境混淆的问题。",
+      "metadata": {
+        "chunk_id": 3,
+        "page_number": 3,
+        "page_range": "3",
+        "word_count": 26
+      }
+    },
+    {
+      "content": "method: 'POST',\n        headers: {\n          'Content-Type': 'application/json',\n        },\n        body: JSON.stringify({ \n          text: input, \n          options,\n          embeddingOptions \n        }),\n      });\n      const data = await response.json();\n      setResult(JSON.stringify(data, null, 2));\n可能是因为\n地址被硬编码，需要更换为你的\n，或者\n。\nIP\nIP\nlocalhost\nconst handleSubmit = async () => {\n    setIsLoading(true);\n    setError('');\n    setResult('');\n    try {\n      const response = await fetch('http://172.20.116.213:8000/api/std', {",
+      "metadata": {
+        "chunk_id": 4,
+        "page_number": 4,
+        "page_range": "4",
+        "word_count": 48
+      }
+    },
+    {
+      "content": "} catch (error) {\n      console.error('Error:', error);\n      setError(`An error occurred: ${error.message}`);\n    }\n    setIsLoading(false);\n  };",
+      "metadata": {
+        "chunk_id": 5,
+        "page_number": 5,
+        "page_range": "5",
+        "word_count": 13
+      }
+    }
+  ]
+}
